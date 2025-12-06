@@ -1,0 +1,326 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.modal {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 30px 25px;
+    max-width: 450px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--color-text-light);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+    background-color: var(--color-background-alt);
+    color: var(--color-secondary);
+}
+
+.progressBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 8px;
+}
+
+.progressStep {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-background-alt);
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.progressStep.active {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    transform: scale(1.1);
+}
+
+.progressLine {
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-background-alt);
+    transition: all 0.3s ease;
+}
+
+.progressLine.active {
+    background-color: var(--color-primary);
+}
+
+.title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--color-secondary);
+}
+
+.stepContent {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.stepTitle {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--color-secondary);
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+.input,
+.select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 16px;
+    /* Prevents zoom on iOS */
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input:focus,
+.select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+.nextButton,
+.backButton,
+.submitButton {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    border: none;
+}
+
+.nextButton,
+.submitButton {
+    background-color: var(--color-secondary);
+    color: #FFFFFF;
+    width: 100%;
+}
+
+.nextButton:hover,
+.submitButton:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.nextButton:disabled {
+    background-color: var(--color-text-light);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.backButton {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-text-light);
+}
+
+.backButton:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.buttonGroup .nextButton,
+.buttonGroup .submitButton {
+    width: auto;
+    flex: 1;
+}
+
+.summary {
+    background-color: var(--color-background-alt);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.summaryItem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+}
+
+.summaryItem:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.summaryItem strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.summaryItem span {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.note {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    text-align: center;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .overlay {
+        padding: 10px;
+    }
+
+    .modal {
+        padding: 20px 15px;
+        max-height: 85vh;
+        border-radius: 12px;
+    }
+
+    .title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .progressStep {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+
+    .progressLine {
+        width: 25px;
+    }
+
+    .stepTitle {
+        font-size: 1rem;
+    }
+
+    .formGroup {
+        margin-bottom: 12px;
+    }
+
+    .input,
+    .select {
+        padding: 10px 12px;
+    }
+
+    .buttonGroup {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .buttonGroup .backButton,
+    .buttonGroup .nextButton,
+    .buttonGroup .submitButton {
+        width: 100%;
+    }
+
+    .summary {
+        padding: 15px;
+    }
+
+    .summaryItem {
+        font-size: 0.9rem;
+        flex-direction: column;
+        gap: 4px;
+    }
+}

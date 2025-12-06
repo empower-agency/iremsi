@@ -1,0 +1,70 @@
+.popup {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #FFFFFF;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 9990;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 300px;
+    border-left: 4px solid var(--color-primary);
+}
+
+.popup.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.icon {
+    font-size: 24px;
+    background: var(--color-background-alt);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    flex: 1;
+}
+
+.message {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin: 0 0 2px 0;
+}
+
+.action {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin: 0 0 2px 0;
+}
+
+.time {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .popup {
+        bottom: 90px;
+        /* Floating buttonların üstünde kalması için */
+        left: 20px;
+        right: 20px;
+        width: auto;
+        max-width: none;
+        padding: 12px 15px;
+        justify-content: center;
+    }
+}

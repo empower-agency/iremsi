@@ -1,0 +1,241 @@
+.footer {
+    background-color: var(--color-background-alt);
+    padding-top: 80px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.description {
+    color: var(--color-text-light);
+    max-width: 300px;
+}
+
+.contactInfo p,
+.contactInfo a {
+    display: block;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+.appointmentButton {
+    display: none;
+    /* Hidden - using floating button instead */
+}
+
+.heading {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.links li {
+    margin-bottom: 10px;
+}
+
+.links a {
+    color: var(--color-text-light);
+}
+
+.links a:hover {
+    color: var(--color-primary);
+}
+
+.bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+/* Floating Action Buttons Container */
+.floatingButtons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9998;
+}
+
+.whatsappFloat,
+.appointmentFloat,
+.instagramFloat {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    position: relative;
+    color: #FFFFFF;
+}
+
+.whatsappFloat {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    animation: pulse 2s infinite;
+}
+
+.appointmentFloat {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #C9A756 100%);
+    font-size: 1.8rem;
+    animation: bounce 3s infinite;
+}
+
+.instagramFloat {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.whatsappFloat svg,
+.instagramFloat svg {
+    width: 32px;
+    height: 32px;
+}
+
+.whatsappFloat:hover,
+.appointmentFloat:hover,
+.instagramFloat:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+    animation: none;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
+    }
+
+    100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .floatingButtons {
+        bottom: 25px;
+        right: 25px;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .floatingButtons {
+        position: fixed !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(15px);
+        padding: 12px 20px;
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        gap: 0;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+        z-index: 2147483647 !important;
+        /* Max Z-Index */
+        width: 100%;
+        margin: 0;
+        display: flex !important;
+    }
+
+    .whatsappFloat,
+    .appointmentFloat,
+    .instagramFloat {
+        width: 45px;
+        height: 45px;
+        box-shadow: none;
+        background: transparent;
+        color: var(--color-text-light);
+    }
+
+    /* Active states for icons */
+    .whatsappFloat {
+        color: #25D366;
+        animation: none;
+    }
+
+    .appointmentFloat {
+        color: var(--color-primary);
+        font-size: 1.8rem;
+        animation: none;
+    }
+
+    .instagramFloat {
+        color: #E1306C;
+    }
+
+    .whatsappFloat svg,
+    .instagramFloat svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .whatsappFloat::after,
+    .appointmentFloat::after,
+    .instagramFloat::after {
+        content: attr(aria-label);
+        position: absolute;
+        bottom: -18px;
+        display: none;
+    }
+
+    .appointmentFloat {
+        background: var(--color-primary);
+        color: #FFFFFF;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        margin-top: -25px;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        border: 4px solid #FFFFFF;
+        position: relative;
+        z-index: 2;
+    }
+}

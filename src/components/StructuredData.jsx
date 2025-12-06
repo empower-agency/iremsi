@@ -1,0 +1,124 @@
+import { BRAND_INFO } from '@/lib/constants';
+
+export function LocalBusinessSchema() {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "BeautySalon",
+        "name": BRAND_INFO.name,
+        "image": "https://www.iremsi.com/logo.png",
+        "@id": "https://www.iremsi.com",
+        "url": "https://www.iremsi.com",
+        "telephone": BRAND_INFO.phone,
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Batı Mahallesi Gazi Paşa Caddesi No:66/2",
+            "addressLocality": "Pendik",
+            "addressRegion": "İstanbul",
+            "postalCode": "34890",
+            "addressCountry": "TR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.8788,
+            "longitude": 29.2355
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "20:00"
+        },
+        "priceRange": "$$",
+        "servesCuisine": null,
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "120"
+        }
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+export function ServiceSchema({ serviceName, district }) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": serviceName,
+        "provider": {
+            "@type": "BeautySalon",
+            "name": BRAND_INFO.name,
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": district,
+                "addressRegion": "İstanbul"
+            }
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": district
+        }
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+export function BreadcrumbSchema({ items }) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": items.map((item, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": item.name,
+            "item": item.url
+        }))
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+export function FAQPageSchema({ faqs }) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
