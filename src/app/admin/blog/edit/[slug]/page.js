@@ -57,23 +57,7 @@ export default function BlogEditor({ params }) {
         setFormData(prev => ({ ...prev, content }));
     };
 
-    const insertTag = (open, close) => {
-        const textarea = document.getElementById('contentEditor');
-        if (!textarea) return;
 
-        const start = textarea.selectionStart;
-        const end = textarea.selectionEnd;
-        const text = formData.content;
-        const before = text.substring(0, start);
-        const selection = text.substring(start, end);
-        const after = text.substring(end);
-
-        const newContent = before + open + selection + close + after;
-        setFormData(prev => ({ ...prev, content: newContent }));
-
-        // Restore cursor? A bit tricky with state update, simply setting focus back
-        textarea.focus();
-    };
 
     // Otomatik slug oluşturma (sadece yeni yazıda ve kullanıcı elle değiştirmediyse)
     const handleTitleChange = (e) => {
@@ -180,6 +164,43 @@ export default function BlogEditor({ params }) {
                             onChange={handleTitleChange}
                             style={{ width: '100%', padding: '12px', fontSize: '1.1rem', borderRadius: '8px', border: '1px solid #ddd' }}
                             placeholder="Örn: 2025 Protez Tırnak Trendleri"
+                        />
+                    </div>
+
+                    <div style={{ marginBottom: '20px' }}>
+                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>İçerik</label>
+                        <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid #ddd', minHeight: '500px' }}>
+                            <Editor
+                                apiKey="no-api-key"
+                                value={formData.content}
+                                onEditorChange={handleContentChange}
+                                init={{
+                                    height: 500,
+                                    menubar: true,
+                                    plugins: [
+                                        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                                        'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                                        'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+                                    ],
+                                    toolbar: 'undo redo | blocks | ' +
+                                        'bold italic forecolor | alignleft aligncenter ' +
+                                        'alignright alignjustify | bullist numlist outdent indent | ' +
+                                        'removeformat | help',
+                                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+                                    paste_data_images: true
+                                }}
+                            />
+                        </div>
+                    </div>
+
+                    <div style={{ marginBottom: '20px' }}>
+                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Kısa Özet (Excerpt)</label>
+                        <textarea
+                            name="excerpt"
+                            value={formData.excerpt}
+                            onChange={handleChange}
+                            style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ddd', minHeight: '80px' }}
+                            placeholder="Makale listesinde görünecek kısa açıklama..."
                         />
                     </div>
                 </div>
