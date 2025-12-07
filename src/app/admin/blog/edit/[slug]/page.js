@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from '../../../admin.module.css';
-import { Editor } from '@tinymce/tinymce-react';
+
 
 export default function BlogEditor({ params }) {
     const [loading, setLoading] = useState(true);
@@ -58,6 +58,24 @@ export default function BlogEditor({ params }) {
     };
 
 
+
+    const insertTag = (open, close) => {
+        const textarea = document.getElementById('contentEditor');
+        if (!textarea) return;
+
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const text = formData.content;
+        const before = text.substring(0, start);
+        const selection = text.substring(start, end);
+        const after = text.substring(end);
+
+        const newContent = before + open + selection + close + after;
+        setFormData(prev => ({ ...prev, content: newContent }));
+
+        // Focus back to textarea
+        setTimeout(() => textarea.focus(), 0);
+    };
 
     // Otomatik slug oluşturma (sadece yeni yazıda ve kullanıcı elle değiştirmediyse)
     const handleTitleChange = (e) => {
@@ -168,29 +186,41 @@ export default function BlogEditor({ params }) {
                     </div>
 
                     <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>İçerik</label>
-                        <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid #ddd', minHeight: '500px' }}>
-                            <Editor
-                                apiKey="no-api-key"
+                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>İçerik (HTML)</label>
+                        <div style={{ border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden' }}>
+                            {/* Simple Toolbar */}
+                            <div style={{ background: '#f8f9fa', padding: '10px', borderBottom: '1px solid #ddd', display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+                                <button type="button" onClick={() => insertTag('<b>', '</b>')} style={{ fontWeight: 'bold', padding: '5px 10px', cursor: 'pointer' }}>Kalın</button>
+                                <button type="button" onClick={() => insertTag('<i>', '</i>')} style={{ fontStyle: 'italic', padding: '5px 10px', cursor: 'pointer' }}>İtalik</button>
+                                <button type="button" onClick={() => insertTag('<h2>', '</h2>')} style={{ padding: '5px 10px', cursor: 'pointer' }}>Başlık 2</button>
+                                <button type="button" onClick={() => insertTag('<h3>', '</h3>')} style={{ padding: '5px 10px', cursor: 'pointer' }}>Başlık 3</button>
+                                <button type="button" onClick={() => insertTag('<p>', '</p>')} style={{ padding: '5px 10px', cursor: 'pointer' }}>Paragraf</button>
+                                <button type="button" onClick={() => insertTag('<ul>\n<li>', '</li>\n</ul>')} style={{ padding: '5px 10px', cursor: 'pointer' }}>Liste</button>
+                                <button type="button" onClick={() => {
+                                    const url = prompt('Link adresi giriniz (https://...):');
+                                    if (url) insertTag(`<a href="${url}" target="_blank">`, '</a>');
+                                }} style={{ padding: '5px 10px', cursor: 'pointer', color: 'blue' }}>Link Ekle</button>
+                            </div>
+
+                            <textarea
+                                id="contentEditor"
+                                name="content"
                                 value={formData.content}
-                                onEditorChange={handleContentChange}
-                                init={{
-                                    height: 500,
-                                    menubar: true,
-                                    plugins: [
-                                        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-                                        'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                                        'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
-                                    ],
-                                    toolbar: 'undo redo | blocks | ' +
-                                        'bold italic forecolor | alignleft aligncenter ' +
-                                        'alignright alignjustify | bullist numlist outdent indent | ' +
-                                        'removeformat | help',
-                                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-                                    paste_data_images: true
+                                onChange={(e) => handleContentChange(e.target.value)}
+                                style={{
+                                    width: '100%',
+                                    height: '500px',
+                                    padding: '15px',
+                                    border: 'none',
+                                    resize: 'vertical',
+                                    fontFamily: 'monospace',
+                                    fontSize: '14px',
+                                    lineHeight: '1.6'
                                 }}
+                                placeholder="Makalenizi buraya yazın veya yapıştırın..."
                             />
                         </div>
+                        <small style={{ color: '#666', marginTop: '5px', display: 'block' }}>* HTML formatında içerik girebilirsiniz.</small>
                     </div>
 
                     <div style={{ marginBottom: '20px' }}>
