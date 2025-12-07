@@ -21,7 +21,14 @@ function getPosts() {
 
 // Helper to save posts
 function savePosts(posts) {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(posts, null, 2), 'utf8');
+    try {
+        fs.writeFileSync(DATA_FILE, JSON.stringify(posts, null, 2), 'utf8');
+        return true;
+    } catch (error) {
+        console.error('File Write Error:', error);
+        // Throw simple error to be caught by API handler
+        throw new Error('Dosya sistemine yazılamadı. Vercel/Production ortamında yerel dosyaya kayıt yapılamaz. Veritabanı gereklidir.');
+    }
 }
 
 export async function GET() {
@@ -34,16 +41,14 @@ export async function POST(request) {
 
         // Validation
         if (!body.title || !body.slug) {
-            return NextResponse.json({ error: 'Title and Slug are required' }, { status: 400 });
+            return NextResponse.json({ error: 'Başlık ve URL (slug) zorunludur.' }, { status: 400 });
         }
 
         const posts = getPosts();
 
         // Check for duplicate slug
-        // logic for editing vs creating might be needed here if PUT is separate. 
-        // But this is POST (create new). Check duplicate.
         if (posts.find(p => p.slug === body.slug)) {
-            return NextResponse.json({ error: 'Slug already exists' }, { status: 400 });
+            return NextResponse.json({ error: 'Bu URL (slug) zaten kullanılıyor. Lütfen başlığı değiştirin.' }, { status: 400 });
         }
 
         const newPost = {
@@ -58,23 +63,29 @@ export async function POST(request) {
                 description: body.seo?.description || '',
                 keywords: body.seo?.keywords || ''
             },
-            status: body.status || 'draft', // draft | published
+            status: body.status || 'draft',
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString()
         };
 
+        // Try to save
         posts.unshift(newPost);
         savePosts(posts);
 
         // Ping search engines if published immediately
         if (newPost.status === 'published') {
-            await pingSearchEngines(newPost.slug);
+            // Non-blocking ping
+            pingSearchEngines(newPost.slug).catch(err => console.error('Ping Error:', err));
         }
 
         return NextResponse.json(newPost);
 
     } catch (error) {
         console.error('Blog API Error:', error);
-        return NextResponse.json({ error: 'Internal Server Error', details: error.message }, { status: 500 });
+        // Return friendly error message
+        return NextResponse.json(
+            { error: error.message || 'Sunucu hatası oluştu.' },
+            { status: 500 }
+        );
     }
 }
