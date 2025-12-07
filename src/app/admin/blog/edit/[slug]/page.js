@@ -59,22 +59,11 @@ export default function BlogEditor({ params }) {
 
 
 
-    const insertTag = (open, close) => {
-        const textarea = document.getElementById('contentEditor');
-        if (!textarea) return;
-
-        const start = textarea.selectionStart;
-        const end = textarea.selectionEnd;
-        const text = formData.content;
-        const before = text.substring(0, start);
-        const selection = text.substring(start, end);
-        const after = text.substring(end);
-
-        const newContent = before + open + selection + close + after;
-        setFormData(prev => ({ ...prev, content: newContent }));
-
-        // Focus back to textarea
-        setTimeout(() => textarea.focus(), 0);
+    const execCmd = (command, value = null) => {
+        document.execCommand(command, false, value);
+        // Force update state
+        const editor = document.getElementById('visualEditor');
+        if (editor) handleContentChange(editor.innerHTML);
     };
 
     // Otomatik slug oluşturma (sadece yeni yazıda ve kullanıcı elle değiştirmediyse)
@@ -186,41 +175,41 @@ export default function BlogEditor({ params }) {
                     </div>
 
                     <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>İçerik (HTML)</label>
-                        <div style={{ border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden' }}>
-                            {/* Simple Toolbar */}
-                            <div style={{ background: '#f8f9fa', padding: '10px', borderBottom: '1px solid #ddd', display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
-                                <button type="button" onClick={() => insertTag('<b>', '</b>')} style={{ fontWeight: 'bold', padding: '5px 10px', cursor: 'pointer' }}>Kalın</button>
-                                <button type="button" onClick={() => insertTag('<i>', '</i>')} style={{ fontStyle: 'italic', padding: '5px 10px', cursor: 'pointer' }}>İtalik</button>
-                                <button type="button" onClick={() => insertTag('<h2>', '</h2>')} style={{ padding: '5px 10px', cursor: 'pointer' }}>Başlık 2</button>
-                                <button type="button" onClick={() => insertTag('<h3>', '</h3>')} style={{ padding: '5px 10px', cursor: 'pointer' }}>Başlık 3</button>
-                                <button type="button" onClick={() => insertTag('<p>', '</p>')} style={{ padding: '5px 10px', cursor: 'pointer' }}>Paragraf</button>
-                                <button type="button" onClick={() => insertTag('<ul>\n<li>', '</li>\n</ul>')} style={{ padding: '5px 10px', cursor: 'pointer' }}>Liste</button>
+                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>İçerik</label>
+                        <div style={{ border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden', background: '#fff' }}>
+                            {/* Visual Toolbar */}
+                            <div style={{ background: '#f8f9fa', padding: '10px', borderBottom: '1px solid #ddd', display: 'flex', gap: '5px', flexWrap: 'wrap', position: 'sticky', top: 0, zIndex: 10 }}>
+                                <button type="button" onClick={() => execCmd('bold')} style={{ fontWeight: 'bold', padding: '6px 12px', cursor: 'pointer', border: '1px solid #ced4da', background: '#fff', borderRadius: '4px' }} title="Kalın"><b>B</b></button>
+                                <button type="button" onClick={() => execCmd('italic')} style={{ fontStyle: 'italic', padding: '6px 12px', cursor: 'pointer', border: '1px solid #ced4da', background: '#fff', borderRadius: '4px' }} title="İtalik"><i>I</i></button>
+                                <button type="button" onClick={() => execCmd('formatBlock', 'H2')} style={{ padding: '6px 12px', cursor: 'pointer', border: '1px solid #ced4da', background: '#fff', borderRadius: '4px', fontWeight: 'bold' }}>H2</button>
+                                <button type="button" onClick={() => execCmd('formatBlock', 'H3')} style={{ padding: '6px 12px', cursor: 'pointer', border: '1px solid #ced4da', background: '#fff', borderRadius: '4px', fontWeight: 'bold' }}>H3</button>
+                                <button type="button" onClick={() => execCmd('formatBlock', 'P')} style={{ padding: '6px 12px', cursor: 'pointer', border: '1px solid #ced4da', background: '#fff', borderRadius: '4px' }}>P</button>
+                                <button type="button" onClick={() => execCmd('insertUnorderedList')} style={{ padding: '6px 12px', cursor: 'pointer', border: '1px solid #ced4da', background: '#fff', borderRadius: '4px' }}>• Liste</button>
+                                <button type="button" onClick={() => execCmd('insertOrderedList')} style={{ padding: '6px 12px', cursor: 'pointer', border: '1px solid #ced4da', background: '#fff', borderRadius: '4px' }}>1. Liste</button>
                                 <button type="button" onClick={() => {
-                                    const url = prompt('Link adresi giriniz (https://...):');
-                                    if (url) insertTag(`<a href="${url}" target="_blank">`, '</a>');
-                                }} style={{ padding: '5px 10px', cursor: 'pointer', color: 'blue' }}>Link Ekle</button>
+                                    const url = prompt('Link URL:');
+                                    if (url) execCmd('createLink', url);
+                                }} style={{ padding: '6px 12px', cursor: 'pointer', border: '1px solid #ced4da', background: '#fff', borderRadius: '4px', color: 'blue' }}>🔗 Link</button>
+                                <button type="button" onClick={() => execCmd('removeFormat')} style={{ padding: '6px 12px', cursor: 'pointer', border: '1px solid #ced4da', background: '#fff', borderRadius: '4px', color: 'red' }}>🧹 Temizle</button>
                             </div>
 
-                            <textarea
-                                id="contentEditor"
-                                name="content"
-                                value={formData.content}
-                                onChange={(e) => handleContentChange(e.target.value)}
+                            <div
+                                id="visualEditor"
+                                contentEditable
+                                onInput={(e) => handleContentChange(e.currentTarget.innerHTML)}
                                 style={{
                                     width: '100%',
-                                    height: '500px',
-                                    padding: '15px',
-                                    border: 'none',
-                                    resize: 'vertical',
-                                    fontFamily: 'monospace',
-                                    fontSize: '14px',
-                                    lineHeight: '1.6'
+                                    minHeight: '500px',
+                                    padding: '20px',
+                                    outline: 'none',
+                                    fontSize: '16px',
+                                    lineHeight: '1.6',
+                                    overflowY: 'auto'
                                 }}
-                                placeholder="Makalenizi buraya yazın veya yapıştırın..."
+                                dangerouslySetInnerHTML={{ __html: formData.content }}
                             />
                         </div>
-                        <small style={{ color: '#666', marginTop: '5px', display: 'block' }}>* HTML formatında içerik girebilirsiniz.</small>
+                        <small style={{ color: '#666', marginTop: '5px', display: 'block' }}>* Başka bir yerden kopyaladığınız yazıları (Word, Web Sitesi vb.) doğrudan yapıştırabilirsiniz.</small>
                     </div>
 
                     <div style={{ marginBottom: '20px' }}>
