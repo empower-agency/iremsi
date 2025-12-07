@@ -44,7 +44,12 @@ export default function Dashboard() {
     return (
         <div className={styles.dashboard}>
             <header className={styles.header}>
-                <h1>📝 İçerik Yönetimi</h1>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                    <h1>📝 İçerik Yönetimi</h1>
+                    <Link href="/admin/blog" style={{ color: '#fff', textDecoration: 'underline' }}>
+                        Blog Yönetimi ➡️
+                    </Link>
+                </div>
                 <button onClick={handleLogout} className={styles.logoutBtn}>
                     Çıkış Yap
                 </button>

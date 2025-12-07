@@ -1,4 +1,7 @@
+
 import { DISTRICTS, SERVICES } from '@/lib/constants';
+import fs from 'fs';
+import path from 'path';
 
 export default function sitemap() {
     const baseUrl = 'https://www.iremsi.com'; // Sitenizin domain'ini buraya yazın
@@ -10,6 +13,12 @@ export default function sitemap() {
             lastModified: new Date(),
             changeFrequency: 'daily',
             priority: 1.0,
+        },
+        {
+            url: `${baseUrl}/blog`,
+            lastModified: new Date(),
+            changeFrequency: 'daily',
+            priority: 0.9,
         },
         {
             url: `${baseUrl}/hakkimizda`,
@@ -30,6 +39,26 @@ export default function sitemap() {
             priority: 0.3,
         },
     ];
+
+    // Blog Yazıları (Dinamik)
+    let blogPages = [];
+    try {
+        const filePath = path.join(process.cwd(), 'data', 'blog-posts.json');
+        if (fs.existsSync(filePath)) {
+            const blogs = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            const publishedBlogs = blogs.filter(p => p.status === 'published');
+
+            blogPages = publishedBlogs.map(post => ({
+                url: `${baseUrl}/blog/${post.slug}`,
+                lastModified: new Date(post.updatedAt),
+                changeFrequency: 'weekly',
+                priority: 0.8,
+            }));
+        }
+    } catch (e) {
+        console.error('Blog sitemap error', e);
+    }
+
 
     // Tüm ilçe-hizmet kombinasyonları
     const servicePages = [];
@@ -57,5 +86,5 @@ export default function sitemap() {
         });
     });
 
-    return [...staticPages, ...servicePages];
+    return [...staticPages, ...servicePages, ...blogPages];
 }

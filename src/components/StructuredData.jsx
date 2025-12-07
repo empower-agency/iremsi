@@ -122,3 +122,34 @@ export function FAQPageSchema({ faqs }) {
     );
 }
 
+export function ArticleSchema({ title, description, image, datePublished, dateModified }) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": title,
+        "description": description,
+        "image": image ? [image] : [],
+        "datePublished": datePublished,
+        "dateModified": dateModified || datePublished,
+        "author": [{
+            "@type": "Organization",
+            "name": BRAND_INFO.name,
+            "url": "https://www.iremsi.com"
+        }],
+        "publisher": {
+            "@type": "Organization",
+            "name": BRAND_INFO.name,
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.iremsi.com/logo.png"
+            }
+        }
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
