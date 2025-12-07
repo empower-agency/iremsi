@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import styles from '../../../admin.module.css';
 // ReactQuill removed due to React 19 incompatibility
 
 export default function BlogEditor({ params }) {
