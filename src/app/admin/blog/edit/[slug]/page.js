@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from '../../../admin.module.css';
-// ReactQuill removed due to React 19 incompatibility
+import { Editor } from '@tinymce/tinymce-react';
 
 export default function BlogEditor({ params }) {
     const [loading, setLoading] = useState(true);
@@ -180,54 +180,6 @@ export default function BlogEditor({ params }) {
                             onChange={handleTitleChange}
                             style={{ width: '100%', padding: '12px', fontSize: '1.1rem', borderRadius: '8px', border: '1px solid #ddd' }}
                             placeholder="Örn: 2025 Protez Tırnak Trendleri"
-                        />
-                    </div>
-
-                    <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>İçerik (HTML)</label>
-                        <div style={{ border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden' }}>
-                            {/* Toolbar */}
-                            <div style={{ background: '#f8f9fa', padding: '10px', borderBottom: '1px solid #ddd', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                                <button type="button" onClick={() => insertTag('<b>', '</b>')} style={{ fontWeight: 'bold', padding: '5px 10px' }}>B</button>
-                                <button type="button" onClick={() => insertTag('<i>', '</i>')} style={{ fontStyle: 'italic', padding: '5px 10px' }}>I</button>
-                                <button type="button" onClick={() => insertTag('<h2>', '</h2>')} style={{ padding: '5px 10px' }}>H2</button>
-                                <button type="button" onClick={() => insertTag('<h3>', '</h3>')} style={{ padding: '5px 10px' }}>H3</button>
-                                <button type="button" onClick={() => insertTag('<p>', '</p>')} style={{ padding: '5px 10px' }}>P</button>
-                                <button type="button" onClick={() => insertTag('<ul>\n<li>', '</li>\n</ul>')} style={{ padding: '5px 10px' }}>Liste</button>
-                                <button type="button" onClick={() => {
-                                    const url = prompt('Link adresi:');
-                                    if (url) insertTag(`<a href="${url}">`, '</a>');
-                                }} style={{ padding: '5px 10px' }}>Link</button>
-                            </div>
-
-                            <textarea
-                                id="contentEditor"
-                                name="content"
-                                value={formData.content}
-                                onChange={(e) => handleContentChange(e.target.value)}
-                                style={{
-                                    width: '100%',
-                                    height: '400px',
-                                    padding: '15px',
-                                    border: 'none',
-                                    resize: 'vertical',
-                                    fontFamily: 'monospace',
-                                    fontSize: '14px',
-                                    lineHeight: '1.5'
-                                }}
-                            />
-                        </div>
-                        <small style={{ color: '#666' }}>* HTML etiketleri kullanabilirsiniz.</small>
-                    </div>
-
-                    <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Kısa Özet (Excerpt)</label>
-                        <textarea
-                            name="excerpt"
-                            value={formData.excerpt}
-                            onChange={handleChange}
-                            style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ddd', minHeight: '80px' }}
-                            placeholder="Makale listesinde görünecek kısa açıklama..."
                         />
                     </div>
                 </div>
