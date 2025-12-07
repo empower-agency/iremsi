@@ -14,6 +14,7 @@ function getPosts() {
         const fileContent = fs.readFileSync(DATA_FILE, 'utf8');
         return JSON.parse(fileContent);
     } catch (e) {
+        console.error('Error reading blog posts:', e);
         return [];
     }
 }
@@ -39,6 +40,8 @@ export async function POST(request) {
         const posts = getPosts();
 
         // Check for duplicate slug
+        // logic for editing vs creating might be needed here if PUT is separate. 
+        // But this is POST (create new). Check duplicate.
         if (posts.find(p => p.slug === body.slug)) {
             return NextResponse.json({ error: 'Slug already exists' }, { status: 400 });
         }
@@ -71,6 +74,7 @@ export async function POST(request) {
         return NextResponse.json(newPost);
 
     } catch (error) {
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+        console.error('Blog API Error:', error);
+        return NextResponse.json({ error: 'Internal Server Error', details: error.message }, { status: 500 });
     }
 }
