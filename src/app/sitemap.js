@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default function sitemap() {
-    const baseUrl = 'https://www.iremsi.com'; // Sitenizin domain'ini buraya yazın
+    const baseUrl = 'https://www.pendiknailart.com'; // Sitenizin doğru domain adresi
 
     // Ana sayfalar
     const staticPages = [

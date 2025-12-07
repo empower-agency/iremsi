@@ -1,6 +1,6 @@
 
 export async function pingSearchEngines(slug) {
-    const sitemapUrl = `https://www.iremsi.com/sitemap.xml`;
+    const sitemapUrl = `https://www.pendiknailart.com/sitemap.xml`;
     // Usually pinging simply tells engines to check the sitemap, 
     // or specific URLs. Most standard is sitemap ping.
 
