@@ -5,6 +5,6 @@ export default function robots() {
             allow: '/',
             disallow: [],
         },
-        sitemap: 'https://www.iremsi.com/sitemap.xml',
+        sitemap: 'https://www.pendiknailart.com/sitemap.xml',
     };
 }
