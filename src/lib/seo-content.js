@@ -130,7 +130,7 @@ Hem doğal tırnaklara hem de protez tırnaklara nail art uygulaması yapılabil
     },
 
     'kalici-oje': {
-        image: '/images/kalici-oje.png',
+        image: '/images/pendik-kalici-oje.jpg',
         imageAlt: '{district} Kalıcı Oje Uygulaması - Parlak ve Dayanıklı',
         metaTitle: '{district} Kalıcı Oje | Haftalarca Parlak Tırnaklar',
         metaDescription: '{district} kalıcı oje uygulaması ile haftalarca pürüzsüz, parlak tırnaklar! UV/LED kurutma, çabuk bozulmaz formül. Randevu: 0546 533 75 60',
@@ -174,7 +174,7 @@ Kaliteli ürünler ve doğru teknikle uygulanan kalıcı oje zararlı değildir.
     },
 
     'manikur': {
-        image: '/images/manikur.png',
+        image: '/images/pendik-manikur-hizmeti.jpg',
         imageAlt: '{district} Profesyonel Manikür Hizmeti',
         metaTitle: '{district} Manikür | Profesyonel El Bakımı & Tırnak Şekillendirme',
         metaDescription: '{district} manikür hizmeti ile ellerinizi şımartın! Kütikül bakımı, tırnak şekillendirme, nemlendirme. Profesyonel dokunuş için: 0546 533 75 60',
@@ -223,7 +223,7 @@ Uzmanlar, ideal tırnak sağlığı için **her 2-3 haftada bir** manikür yapt�
     },
 
     'pedikur': {
-        image: '/images/pedikur.png',
+        image: '/images/pendik-pedikur-bakim.jpg',
         imageAlt: '{district} Ayak Bakımı ve Pedikür Hizmeti',
         metaTitle: '{district} Pedikür | Profesyonel Ayak Bakımı & Nasır Temizliği',
         metaDescription: '{district} pedikür hizmeti - Ayaklarınız için lüks bakım! Nasır temizliği, tırnak kesimi, ayak masajı. Rahatlatıcı deneyim için: 0546 533 75 60',
@@ -267,7 +267,7 @@ Medikal pedikür, **tırnak batması**, **mantar**, **diyabetik ayak bakımı** 
     },
 
     'ipek-kirpik': {
-        image: '/images/ipek-kirpik.png',
+        image: '/images/pendik-ipek-kirpik-uygulama.jpg',
         imageAlt: '{district} İpek Kirpik Uygulaması - Dolgun Bakışlar',
         metaTitle: '{district} İpek Kirpik | Profesyonel Kirpik Uzatma',
         metaDescription: '{district} ipek kirpik uygulaması - Doğal görünümlü, dolgun kirpikler! Tek tek uygulama, uzun ömürlü. Randevu: 0546 533 75 60',
@@ -308,7 +308,7 @@ Medikal pedikür, **tırnak batması**, **mantar**, **diyabetik ayak bakımı** 
     },
 
     'kirpik-lifting': {
-        image: '/images/kirpik-lifting.png',
+        image: '/images/pendik-kirpik-lifting.jpg',
         imageAlt: '{district} Kirpik Lifting ve Kalıcı Kıvırma',
         metaTitle: '{district} Kirpik Lifting | Kalıcı Kirpik Kıvırma',
         metaDescription: '{district} kirpik lifting - Kendi kirpiklerinizi kalıcı olarak kıvırın! 6-8 hafta etkili, doğal görünüm. Randevu: 0546 533 75 60',
@@ -346,7 +346,7 @@ Medikal pedikür, **tırnak batması**, **mantar**, **diyabetik ayak bakımı** 
     },
 
     'kas-laminasyonu': {
-        image: '/images/kas-laminasyonu.png',
+        image: '/images/pendik-kas-laminasyonu.jpg',
         imageAlt: '{district} Kaş Laminasyonu - Gür ve Şekilli Kaşlar',
         metaTitle: '{district} Kaş Laminasyonu | Dolgun ve Şekilli Kaşlar',
         metaDescription: '{district} kaş laminasyonu ile kaşlarınızı dolgun ve düzgün gösterin! 4-6 hafta etkili. Randevu: 0546 533 75 60',
@@ -390,43 +390,43 @@ Uygulama sonuçları ortalama **4-6 hafta** sürer. Bazı kişilerde 8 haftaya k
 // Diğer hizmetler için temel template (jel güçlendirme, protez çıkarma, tamir, uzatma, eğitim)
 export const SERVICE_SEO_TEMPLATES = {
     'susuz-manikur': {
-        image: '/images/manikur.png',
+        image: '/images/pendik-susuz-manikur.jpg',
         imageAlt: '{district} Susuz Manikür - Hijyenik El Bakımı',
         metaTitle: '{district} Susuz Manikür | Modern ve Hijyenik Bakım',
         metaDescription: '{district} susuz manikür - Su kullanmadan hijyenik el bakımı! Daha uzun ömürlü oje, daha sağlıklı kütikül. Randevu: 0546 533 75 60'
     },
     'medikal-manikur': {
-        image: '/images/manikur.png',
+        image: '/images/pendik-medikal-manikur.jpg',
         imageAlt: '{district} Medikal Manikür - Tırnak Sağlığı',
         metaTitle: '{district} Medikal Manikür | Tırnak Problemleri Çözümü',
         metaDescription: '{district} medikal manikür - Tırnak batması, mantar, kalınlaşma sorunlarına profesyonel çözüm. Randevu: 0546 533 75 60'
     },
     'jel-guclendirme': {
-        image: '/images/protez-tirnak.png',
+        image: '/images/pendik-jel-guclendirme.jpg',
         imageAlt: '{district} Jel Güçlendirme - Kırılgan Tırnak Çözümü',
         metaTitle: '{district} Jel Güçlendirme | Kırılgan Tırnaklar İçin',
         metaDescription: '{district} jel güçlendirme ile kırılgan tırnaklarınızı güçlendirin! Koruyucu tabaka, dayanıklı sonuç. Randevu: 0546 533 75 60'
     },
     'protez-tirnak-cikarma': {
-        image: '/images/protez-tirnak.png',
+        image: '/images/pendik-protez-tirnak-cikarma.jpg',
         imageAlt: '{district} Protez Tırnak Çıkarma - Zarar Vermeden',
         metaTitle: '{district} Protez Tırnak Çıkarma | Güvenli Sökme',
         metaDescription: '{district} protez tırnak çıkarma - Tırnağınıza zarar vermeden profesyonel sökme işlemi. Randevu: 0546 533 75 60'
     },
     'protez-tirnak-tamiri': {
-        image: '/images/protez-tirnak.png',
+        image: '/images/pendik-protez-tirnak-tamiri.jpg',
         imageAlt: '{district} Protez Tırnak Tamiri',
         metaTitle: '{district} Protez Tırnak Tamiri | Kırık Tırnak Onarımı',
         metaDescription: '{district} protez tırnak tamiri - Kırılan veya zarar gören tırnaklarınızın hızlı ve ekonomik onarımı. Randevu: 0546 533 75 60'
     },
     'jel-uzatma': {
-        image: '/images/protez-tirnak.png',
+        image: '/images/pendik-jel-uzatma.jpg',
         imageAlt: '{district} Jel Tırnak Uzatma',
         metaTitle: '{district} Jel Uzatma | Doğal Görünümlü Tırnak Uzatma',
         metaDescription: '{district} jel tırnak uzatma - Esnek, doğal görünümlü jel sistemle tırnak uzatma. Randevu: 0546 533 75 60'
     },
     'protez-tirnak-egitimi': {
-        image: '/images/protez-tirnak.png',
+        image: '/images/pendik-protez-tirnak-egitimi.jpg',
         imageAlt: '{district} Protez Tırnak Kursu ve Eğitimi',
         metaTitle: '{district} Protez Tırnak Eğitimi | Sertifikalı Kurs',
         metaDescription: '{district} protez tırnak eğitimi - Sertifikalı, uygulamalı profesyonel kurs. Kendi işinizi kurun! Bilgi: 0546 533 75 60'

@@ -52,11 +52,12 @@ export function LocalBusinessSchema() {
     );
 }
 
-export function ServiceSchema({ serviceName, district }) {
+export function ServiceSchema({ serviceName, district, image }) {
     const schema = {
         "@context": "https://schema.org",
         "@type": "Service",
         "serviceType": serviceName,
+        "image": image ? `https://www.pendiknailart.com${image}` : undefined,
         "provider": {
             "@type": "BeautySalon",
             "name": BRAND_INFO.name,

@@ -179,7 +179,11 @@ export default async function ServicePage({ params }) {
 
     return (
         <>
-            <ServiceSchema serviceName={service.title} district={district} />
+            <ServiceSchema
+                serviceName={service.title}
+                district={district}
+                image={seoContent?.image}
+            />
             <BreadcrumbSchema items={breadcrumbItems} />
 
             <div className={styles.container}>
