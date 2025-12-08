@@ -192,6 +192,7 @@ Profesyonel bir manikür seansı şu adımlardan oluşur:
 3. **Kütikül Bakımı**: Tırnak etlerinin yumuşatılması ve düzenlenmesi
 4. **El Masajı**: Nemlendirici kremlerle masaj
 5. **Tırnak Parlatma**: Doğal parlaklık veya oje uygulama
+6. **Oje Sürümü**: Kişisel tercihinize göre renk seçimi
 
 ### Manikür Türleri
 
@@ -384,51 +385,244 @@ Uygulama sonuçları ortalama **4-6 hafta** sürer. Bazı kişilerde 8 haftaya k
 
 {district} {landmarks} kaş laminasyonu için profesyonel hizmet sunuyoruz.
 `
+    },
+
+    'susuz-manikur': {
+        image: '/images/pendik-susuz-manikur.jpg',
+        imageAlt: '{district} Susuz Manikür - Hijyenik ve Pratik El Bakımı',
+        metaTitle: '{district} Susuz Manikür | Hijyenik & Modern El Bakımı',
+        metaDescription: '{district} susuz manikür hizmeti ile su kullanmadan, %100 hijyenik el bakımı deneyimi yaşayın. Daha kalıcı oje, yumuşak eller. Randevu: 0546 533 75 60',
+        article: `
+## {district} Susuz Manikür - Modern ve Hijyenik Bakım
+
+**{district} susuz manikür**, geleneksel manikürden farklı olarak su kullanılmadan, özel losyonlar ve eldivenler yardımıyla yapılan modern bir bakım yöntemidir. Dünya genelinde "Waterless Manicure" olarak bilinen bu yöntem, hijyen standartlarını en üst seviyeye taşır.
+
+### Neden Susuz Manikür Tercih Etmelisiniz?
+
+1. **Maksimum Hijyen**: Su kullanılmadığı için bakteri ve mantar bulaşma riski sıfıra iner.
+2. **Daha Kalıcı Oje**: Tırnaklar suyu emip şişmediği için, sürülen oje çok daha uzun süre dayanır.
+3. **Derinlemesine Bakım**: Özel manikür eldivenlerinin içindeki keratin ve E vitamini, ellere yoğun bakım yapar.
+4. **Çevre Dostu**: Su tasarrufu sağlar.
+
+### Susuz Manikür Nasıl Yapılır?
+
+1. Eller dezenfekte edilir.
+2. Özel bakım eldivenleri giyilir ve 5-10 dakika beklenir.
+3. Eldiven uçları açılarak tırnak etleri (kütikül) temizlenir.
+4. Tırnaklar şekillendirilir.
+5. Eldiven çıkarılır ve kalan losyonla ellere masaj yapılır.
+6. Oje uygulamasına geçilir.
+
+### {district} Susuz Manikür Fiyatları
+
+Stüdyomuzda susuz manikür fiyatları, kullanılan özel ürünlerin kalitesine göre belirlenir. Genellikle klasik manikürden çok az bir farkla bu lüks hizmete ulaşabilirsiniz.
+
+{district} {intro} olarak sağlığınızı önemsiyor ve en hijyenik yöntemleri kullanıyoruz.
+`
+    },
+
+    'medikal-manikur': {
+        image: '/images/pendik-medikal-manikur.jpg',
+        imageAlt: '{district} Medikal Manikür - Tırnak Sağlığı Çözümleri',
+        metaTitle: '{district} Medikal Manikür | Tırnak Sorunlarına Profesyonel Çözüm',
+        metaDescription: '{district} medikal manikür ile tırnak batması, mantar ve deformasyon sorunlarınıza uzman podolog kalitesinde çözümler. Ağrısız işlem. Bilgi: 0546 533 75 60',
+        article: `
+## {district} Medikal Manikür - Tırnak Sağlığınız İçin Profesyonel Çözüm
+
+**{district} medikal manikür**, sadece estetik değil, aynı zamanda tırnak ve el sağlığını korumaya yönelik paramedikal bir uygulamadır. Tırnaklarında problem yaşayan, diyabet hastası olan veya sadece sağlığını riske atmak istemeyen herkes için idealdir.
+
+### Medikal Manikür Kimler İçin Uygundur?
+
+- **Tırnak Batması** yaşayanlar
+- **Tırnak Mantarı** başlangıcı olanlar
+- **Şekil Bozukluğu** (Deformasyon) olan tırnaklar
+- **Diyabet (Şeker) Hastaları**: Yaralanma riski olmadan güvenli bakım
+- **Tırnak Yeme Alışkanlığı** olanlar ve iyileşme süreci
+- Çok kuru ve çatlayan ellere sahip olanlar
+
+### Medikal Manikürün Farkı Nedir?
+
+Klasik manikürde etler kesilirken (ki bu enfeksiyon riski taşır), medikal manikürde **elektrikli törpü (cihazlı manikür)** kullanılır. Etler kesilmez, sadece ölü deri temizlenir. Bu sayede canlı doku zarar görmez ve kanama, enfeksiyon riski ortadan kalkar.
+
+### Uygulama Süreci
+
+1. Detaylı tırnak analizi yapılır.
+2. Sorunlu bölgeler (batık, nasır vb.) tespit edilir.
+3. Freze uçları ile tırnak yüzeyi ve etrafı temizlenir.
+4. Gerekiyorsa tırnak teli veya bant uygulaması yapılır.
+5. Steril ortamda işlem tamamlanır.
+
+{district} {advantages} sağlık ve güzelliği bir arada sunuyoruz. Tırnak problemlerinizi ertelemeyin, uzmanımıza danışın.
+`
+    },
+
+    'jel-guclendirme': {
+        image: '/images/pendik-jel-guclendirme.jpg',
+        imageAlt: '{district} Jel Güçlendirme - Kırılmayan Doğal Tırnaklar',
+        metaTitle: '{district} Jel Güçlendirme | Kırılgan Tırnaklara Son',
+        metaDescription: '{district} jel güçlendirme (nail strengthening) ile kendi tırnaklarınız kırılmadan uzasın! İnce ve zayıf tırnaklar için koruyucu kalkan. Randevu: 0546 533 75 60',
+        article: `
+## {district} Jel Güçlendirme - Doğal Tırnaklarınız Artık Kırılmayacak
+
+**{district} jel güçlendirme**, protez tırnak istemeyen ama kendi tırnaklarını bir türlü uzatamayanlar için mucizevi bir çözümdür. Tırnağınızın üzerine sürülen özel bir yapı jeli (builder gel) sayesinde tırnaklarınız darbelere karşı zırh gibi korunur.
+
+### Jel Güçlendirme Nedir?
+
+Bu işlemde tırnak uzatılmaz (protez yapılmaz). Sadece var olan kendi tırnağınızın üzerine, onu sertleştirecek ve dış etkenlerden koruyacak şeffaf veya renkli bir jel katmanı uygulanır. Sonuç: **Doğal görünümlü ama demir gibi sağlam tırnaklar.**
+
+### İşlemin Avantajları
+
+1. **Kırılmayı Önler**: Tırnak kağıt gibi yırtılmaz, sertleşir.
+2. **Doğal Uzama**: Tırnağınız kırılmadığı için sağlıklı bir şekilde uzar.
+3. **Pürüzsüz Yüzey**: Tırnak yüzeyindeki çukurlukları ve çizgileri gizler.
+4. **Oje Kalıcılığı**: Üzerine sürülen oje 3-4 hafta bozulmaz.
+
+### Kimler Yaptırmalı?
+
+- Tırnakları sürekli soyulanlar
+- "Tırnaklarımı tam uzatıyorum, kenarından kırılıyor" diyenler
+- Protez tırnak sonrası dinlenme dönemindekiler
+- Doğal görünümden vazgeçmeyenler
+
+### {district} Jel Güçlendirme Fiyatları
+
+Bu işlem, protez tırnaktan daha kısa sürdüğü ve daha az malzeme kullanıldığı için genelde daha ekonomiktir. {district} {landmarks} stüdyomuzda bütçe dostu fiyatlarla bu hizmeti alabilirsiniz.
+
+Hayalinizdeki uzun tırnaklara kendi tırnaklarınızla kavuşun!
+`
+    },
+
+    'protez-tirnak-cikarma': {
+        image: '/images/pendik-protez-tirnak-cikarma.jpg',
+        imageAlt: '{district} Profesyonel Protez Tırnak Çıkarma İşlemi',
+        metaTitle: '{district} Protez Tırnak Çıkarma | Güvenli ve Zararsız Söküm',
+        metaDescription: '{district} protez tırnak çıkarma hizmeti. Tırnağınıza zarar vermeden, inceltmeden profesyonel cihazla söküm işlemi. Sonrasında bakım hediye. Randevu: 0546 533 75 60',
+        article: `
+## {district} Protez Tırnak Çıkarma - Güvenli Veda
+
+Protez tırnaklarınızı veya kalıcı ojenizi çıkartmak istiyorsanız, bunu asla evde kendiniz yapmamalısınız! **{district} protez tırnak çıkarma** hizmetimizle, tırnak plakasına en ufak bir zarar vermeden işlemi profesyonelce gerçekleştiriyoruz.
+
+### Neden Evde Çıkarmamalısınız?
+
+Protez tırnakları koparmak, zorlamak veya yanlış törpülemek:
+- Tırnak yüzeyini inceltir (kağıt gibi olur).
+- Kalıcı hasarlara ve beyaz lekelere yol açar.
+- Tırnak yatağında hassasiyet ve acı oluşturur.
+
+### Profesyonel Çıkarma İşlemi Nasıl Yapılır?
+
+1. **Kısaltma**: Uzun tırnaklar güvenli boyuta getirilir.
+2. **Cihazla İnceltme**: Freze makinesi ile jel/akrilik tabaka dikkatlice inceltilir.
+3. **Solüsyon**: Gerekirse özel çözücülerle (soak-off) kalan materyal yumuşatılır.
+4. **Temizleme**: Tırnak yüzeyi tamamen arındırılır.
+5. **Bakım**: İşlem sonrası tırnaklar "Japon Manikürü" veya özel yağlarla beslenir.
+
+### İşlem Sonrası Tırnak Durumu
+
+Doğru yapılmış bir çıkarma işleminden sonra tırnaklarınız sağlıklı görünmelidir. Hafif bir incelik normaldir ancak "kıpkırmızı" veya "ağrılı" olmamalıdır. Biz {district} {population} müşterilerimize her zaman çıkarma sonrası keratin bakımı uyguluyoruz.
+
+Tırnak sağlığınızı riske atmayın, profesyonel destek alın.
+`
+    },
+
+    'protez-tirnak-tamiri': {
+        image: '/images/pendik-protez-tirnak-tamiri.jpg',
+        imageAlt: '{district} Protez Tırnak Tamiri ve Onarımı',
+        metaTitle: '{district} Protez Tırnak Tamiri | Kırık Tırnak Onarımı',
+        metaDescription: '{district} protez tırnak tamiri - Kırılan, çatlayan veya kalkan tırnaklarınız için acil çözüm. 15 dakikada ilk günkü gibi. Hızlı randevu: 0546 533 75 60',
+        article: `
+## {district} Protez Tırnak Tamiri - Kaza Geliyorum Demez
+
+Yeni yaptırdığınız tırnağınız bir kaza sonucu kırıldı mı? Veya bir tanesi dipten hava mı aldı? Endişelenmeyin! **{district} protez tırnak tamiri** hizmetimizle, setinizi bozmadan sadece sorunlu tırnağı onarıyoruz.
+
+### Sık Karşılaşılan Sorunlar
+
+- **Uçtan Kırılma**: Sert bir darbe sonucu tırnağın ucunun kopması.
+- **Dipten Kalkma (Lifting)**: Jelin tırnak dibinden ayrılması. Bu durum saçların araya girmesine neden olur ve *acil müdahale gerektirir* çünkü araya su girerse mantar oluşabilir.
+- **Çatlama**: Yanlış kullanım veya malzeme yorgunluğu sonucu oluşan çatlaklar.
+
+### Tamir Süreci
+
+Tamir işlemi genellikle **10-15 dakika** sürer.
+1. Kırık veya hasarlı bölge temizlenir.
+2. Form şablonu ile tırnak tekrar inşa edilir.
+3. Diğer tırnaklarla aynı boy ve şekle getirilir.
+4. Aynı renk oje ve desen uygulanır.
+
+### Tamir Ücreti Ne Kadar?
+
+Genellikle tek tırnak tamiri, tam set fiyatının çok küçük bir kısmıdır. Eğer tırnağınızı bizde yaptırdıysanız ve ilk 3 gün içinde teknik bir hatadan dolayı sorun yaşadıysanız, **ücretsiz telafi** garantimiz vardır.
+
+Kırık tırnakla gezmeyin, {district} {landmarks} konumundaki salonumuza 5 dakikalığına uğrayın!
+`
+    },
+
+    'jel-uzatma': {
+        image: '/images/pendik-jel-uzatma.jpg',
+        imageAlt: '{district} Jel Sistem Tırnak Uzatma',
+        metaTitle: '{district} Jel Uzatma | Şablon Sistem ile Doğal Uzama',
+        metaDescription: '{district} jel tırnak uzatma - Tip (takma tırnak) kullanmadan, şablon tekniği ile tamamen jelden oluşan doğal ve esnek uzatma. Randevu: 0546 533 75 60',
+        article: `
+## {district} Jel Uzatma - En Doğal Protez Tırnak Yöntemi
+
+**{district} jel uzatma**, günümüzün en popüler ve en modern tırnak uzatma yöntemidir. Eskiden kullanılan "takma tırnak yapıştırma" (tips) yönteminin aksine, jel uzatmada tırnağınızın ucuna kağıt bir şablon takılır ve tırnak tamamen jel ile inşa edilir.
+
+### Neden Jel Uzatma?
+
+1. **Daha Doğal**: Tırnakla bütünleşir, yapıştırma izi olmaz.
+2. **Daha Dayanıklı**: Tek parça yapı olduğu için kırılma riski daha azdır.
+3. **Daha Esnek**: Darbe aldığında esner, tırnak yatağını acıtmaz.
+4. **İstenilen Form**: Kare, badem, balerin, stiletto... Şablonla her şekil verilebilir.
+
+### Jel Uzatma vs Akrilik
+
+Jel sistem, akriliğe göre daha kokusuz ve daha esnektir. Akrilik kadar sert değildir ancak günümüzde kullanılan "Polygel" sistemleri, akriliğin sağlamlığı ile jelin esnekliğini birleştirmiştir. Biz {district} salonumuzda en yeni nesil jelleri kullanıyoruz.
+
+### İşlem Süresi
+
+Standart bir jel uzatma işlemi, manikür ve oje dahil yaklaşık **2 saat** sürer. Bu süre boyunca tırnaklarınız ilmek ilmek işlenir.
+
+{district} {intro} tırnaklarınızı sanat eserine dönüştürmek için sizi bekliyor.
+`
+    },
+
+    'protez-tirnak-egitimi': {
+        image: '/images/pendik-protez-tirnak-egitimi.jpg',
+        imageAlt: '{district} Sertifikalı Protez Tırnak Eğitimi ve Kursu',
+        metaTitle: '{district} Protez Tırnak Eğitimi | MEB Uyumlu Sertifikalı Kurs',
+        metaDescription: '{district} protez tırnak kursu - Kariyerinize yeni bir yön verin! Uzman eğitmenlerden birebir, uygulamalı eğitim. Sertifika + İş Desteği. Bilgi: 0546 533 75 60',
+        article: `
+## {district} Protez Tırnak Eğitimi - Geleceğin Mesleğini Öğrenin
+
+Güzellik sektörü her geçen gün büyüyor ve kalifiye "Nail Artist" ihtiyacı artıyor. **{district} protez tırnak eğitimi** programımızla, sıfırdan başlayarak profesyonel bir tırnak uzmanı olabilirsiniz. Kendi işinizi kurmak veya elit salonlarda çalışmak hayal değil!
+
+### Eğitim İçeriği
+
+Eğitimlerimiz teorik ve %80 ağırlıklı pratik uygulamalardan oluşur:
+
+1. **Tırnak Anatomisi ve Hijyen**: Tırnak hastalıkları, sterilizasyon.
+2. **Malzeme Bilgisi**: Jel, akrilik, polygel, freze uçları.
+3. **Manikür Teknikleri**: Klasik ve Kombi (Cihazlı) Manikür.
+4. **Şablonla Uzatma**: Doğru şablon yerleştirme.
+5. **Törpüleme Teknikleri**: Hızlı ve doğru form verme.
+6. **Kalıcı Oje ve Nail Art**: Temel süsleme teknikleri.
+7. **Sosyal Medya ve Fotoğraf**: İşlerinizi nasıl pazarlarsınız?
+
+### Neden Bizden Eğitim Almalısınız?
+
+- **Birebir İlgi**: Kalabalık sınıflar değil, az kişilik gruplar.
+- **Sınırsız Model**: Canlı modeller üzerinde bol pratik.
+- **Sertifika**: Eğitim sonunda referans niteliğinde sertifika.
+- **Malzeme Desteği**: Eğitim sırasında tüm malzemeler tarafımızdan karşılanır.
+- **Sonrası Destek**: Eğitim bittikten sonra da takıldığınız yerlerde whatsapp desteği.
+
+### Kariyer Fırsatları
+
+Bu eğitimi tamamlayanlar {district} ve tüm Türkiye'de güzellik merkezlerinde, kuaförlerde veya kendi home-ofislerinde yüksek gelirle çalışabilirler.
+
+Kariyerinize {district} {advantages} konumundaki akademimizde başlayın!
+`
     }
 };
 
-// Diğer hizmetler için temel template (jel güçlendirme, protez çıkarma, tamir, uzatma, eğitim)
-export const SERVICE_SEO_TEMPLATES = {
-    'susuz-manikur': {
-        image: '/images/pendik-susuz-manikur.jpg',
-        imageAlt: '{district} Susuz Manikür - Hijyenik El Bakımı',
-        metaTitle: '{district} Susuz Manikür | Modern ve Hijyenik Bakım',
-        metaDescription: '{district} susuz manikür - Su kullanmadan hijyenik el bakımı! Daha uzun ömürlü oje, daha sağlıklı kütikül. Randevu: 0546 533 75 60'
-    },
-    'medikal-manikur': {
-        image: '/images/pendik-medikal-manikur.jpg',
-        imageAlt: '{district} Medikal Manikür - Tırnak Sağlığı',
-        metaTitle: '{district} Medikal Manikür | Tırnak Problemleri Çözümü',
-        metaDescription: '{district} medikal manikür - Tırnak batması, mantar, kalınlaşma sorunlarına profesyonel çözüm. Randevu: 0546 533 75 60'
-    },
-    'jel-guclendirme': {
-        image: '/images/pendik-jel-guclendirme.jpg',
-        imageAlt: '{district} Jel Güçlendirme - Kırılgan Tırnak Çözümü',
-        metaTitle: '{district} Jel Güçlendirme | Kırılgan Tırnaklar İçin',
-        metaDescription: '{district} jel güçlendirme ile kırılgan tırnaklarınızı güçlendirin! Koruyucu tabaka, dayanıklı sonuç. Randevu: 0546 533 75 60'
-    },
-    'protez-tirnak-cikarma': {
-        image: '/images/pendik-protez-tirnak-cikarma.jpg',
-        imageAlt: '{district} Protez Tırnak Çıkarma - Zarar Vermeden',
-        metaTitle: '{district} Protez Tırnak Çıkarma | Güvenli Sökme',
-        metaDescription: '{district} protez tırnak çıkarma - Tırnağınıza zarar vermeden profesyonel sökme işlemi. Randevu: 0546 533 75 60'
-    },
-    'protez-tirnak-tamiri': {
-        image: '/images/pendik-protez-tirnak-tamiri.jpg',
-        imageAlt: '{district} Protez Tırnak Tamiri',
-        metaTitle: '{district} Protez Tırnak Tamiri | Kırık Tırnak Onarımı',
-        metaDescription: '{district} protez tırnak tamiri - Kırılan veya zarar gören tırnaklarınızın hızlı ve ekonomik onarımı. Randevu: 0546 533 75 60'
-    },
-    'jel-uzatma': {
-        image: '/images/pendik-jel-uzatma.jpg',
-        imageAlt: '{district} Jel Tırnak Uzatma',
-        metaTitle: '{district} Jel Uzatma | Doğal Görünümlü Tırnak Uzatma',
-        metaDescription: '{district} jel tırnak uzatma - Esnek, doğal görünümlü jel sistemle tırnak uzatma. Randevu: 0546 533 75 60'
-    },
-    'protez-tirnak-egitimi': {
-        image: '/images/pendik-protez-tirnak-egitimi.jpg',
-        imageAlt: '{district} Protez Tırnak Kursu ve Eğitimi',
-        metaTitle: '{district} Protez Tırnak Eğitimi | Sertifikalı Kurs',
-        metaDescription: '{district} protez tırnak eğitimi - Sertifikalı, uygulamalı profesyonel kurs. Kendi işinizi kurun! Bilgi: 0546 533 75 60'
-    }
-};
+export const SERVICE_SEO_TEMPLATES = {}; // Artık tüm hizmetler ARTICLES içinde
