@@ -23,6 +23,10 @@ function getSeoContent(serviceSlug, district) {
         return text
             .replace(/\{district\}/g, district)
             .replace(/\{intro\}/g, districtData.intro)
+            .replace(/\{local_vibe\}/g, districtData.local_vibe || '')
+            .replace(/\{transport_access\}/g, districtData.transport_access || '')
+            .replace(/\{why_us_district\}/g, districtData.why_us_district || '')
+            .replace(/\{target_audience\}/g, districtData.target_audience || '')
             .replace(/\{landmarks\}/g, districtData.landmarks)
             .replace(/\{advantages\}/g, districtData.advantages)
             .replace(/\{population\}/g, districtData.population);
