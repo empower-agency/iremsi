@@ -224,11 +224,13 @@ export default async function ServicePage({ params }) {
                             {/* Hizmet Görseli */}
                             {seoContent?.image && (
                                 <div className={styles.serviceImageWrapper}>
-                                    <img
+                                    <Image
                                         src={seoContent.image}
                                         alt={seoContent.imageAlt}
+                                        width={800}
+                                        height={533} // ~3:2 Aspect Ratio
                                         className={styles.serviceImage}
-                                        loading="lazy"
+                                        priority
                                     />
                                     <p className={styles.imageCaption}>{seoContent.imageAlt}</p>
                                 </div>

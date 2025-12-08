@@ -379,12 +379,15 @@
 .serviceImageWrapper {
     margin-bottom: 30px;
     text-align: center;
+    position: relative;
+    width: 100%;
 }
 
 .serviceImage {
     width: 100%;
     max-width: 700px;
     height: auto;
+    /* Maintain aspect ratio */
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     object-fit: cover;

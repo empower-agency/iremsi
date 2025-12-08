@@ -7,27 +7,27 @@ import styles from './InstagramGallery.module.css';
 const INSTAGRAM_POSTS = [
     {
         id: 1,
-        image: '/images/gallery/pendik-protez-tirnak-modeli-1.png',
+        image: '/images/nail-art.png',
         link: 'https://instagram.com/iremsinails',
-        alt: 'Pendik protez tırnak uygulaması ve altın detaylı nail art tasarımı'
+        alt: 'Pendik Nail Art ve Tırnak Süsleme Tasarımları'
     },
     {
         id: 2,
-        image: '/images/gallery/kartal-nail-art-tasarimi-1.png',
+        image: '/images/protez-tirnak.png',
         link: 'https://instagram.com/iremsinails',
-        alt: 'Kartal nail art ve kırmızı kalıcı oje uygulaması'
+        alt: 'Kartal Protez Tırnak ve Jel Uzatma Uygulaması'
     },
     {
         id: 3,
-        image: '/images/gallery/pendik-nail-art-ornek-1.png',
+        image: '/images/pendik-kalici-oje.jpg',
         link: 'https://instagram.com/iremsinails',
-        alt: 'Pendik nail art örneği, french oje tasarımı'
+        alt: 'Maltepe Kalıcı Oje ve Manikür Modelleri'
     },
     {
         id: 4,
-        image: '/images/gallery/kartal-protez-tirnak-uygulama-1.png',
+        image: '/images/pendik-ipek-kirpik-uygulama.jpg',
         link: 'https://instagram.com/iremsinails',
-        alt: 'Kartal protez tırnak sonrası görünüm, nude renkler ve taş süsleme'
+        alt: 'Tuzla İpek Kirpik ve Kirpik Lifting Sonuçları'
     },
 ];
 
