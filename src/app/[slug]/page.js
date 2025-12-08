@@ -1,5 +1,7 @@
 import { DISTRICTS, SERVICES, BRAND_INFO } from '@/lib/constants';
+import { DISTRICT_SEO, SERVICE_SEO_ARTICLES, SERVICE_SEO_TEMPLATES } from '@/lib/seo-content';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './page.module.css';
 import { notFound } from 'next/navigation';
 import { ServiceSchema, BreadcrumbSchema, FAQPageSchema } from '@/components/StructuredData';
@@ -7,6 +9,33 @@ import InstagramGallery from '@/components/InstagramGallery';
 import UrgencyCTA from '@/components/UrgencyCTA';
 import fs from 'fs';
 import path from 'path';
+
+// SEO içeriği al (hizmet bazlı)
+function getSeoContent(serviceSlug, district) {
+    const seoData = SERVICE_SEO_ARTICLES[serviceSlug] || SERVICE_SEO_TEMPLATES[serviceSlug];
+    const districtData = DISTRICT_SEO[district] || DISTRICT_SEO['Pendik'];
+
+    if (!seoData) return null;
+
+    // Template değişkenlerini değiştir
+    const replaceVars = (text) => {
+        if (!text) return '';
+        return text
+            .replace(/\{district\}/g, district)
+            .replace(/\{intro\}/g, districtData.intro)
+            .replace(/\{landmarks\}/g, districtData.landmarks)
+            .replace(/\{advantages\}/g, districtData.advantages)
+            .replace(/\{population\}/g, districtData.population);
+    };
+
+    return {
+        image: seoData.image,
+        imageAlt: replaceVars(seoData.imageAlt),
+        metaTitle: replaceVars(seoData.metaTitle),
+        metaDescription: replaceVars(seoData.metaDescription),
+        article: seoData.article ? replaceVars(seoData.article) : null
+    };
+}
 
 // Özel içerik oku (ilçe-hizmet bazlı)
 function getCustomContent(fullSlug) {
@@ -61,22 +90,35 @@ export async function generateMetadata({ params }) {
     }
 
     const { district, service } = data;
+    const seoContent = getSeoContent(service.slug, district);
 
-    const title = `${district} ${service.title} - Profesyonel Hizmet | ${BRAND_INFO.name}`;
-    const description = `${district} bölgesinde profesyonel ${service.title} hizmeti. ${service.description} Hijyenik ortamda, uzman kadromuzla. Hemen randevu alın: ${BRAND_INFO.phoneDisplay}`;
+    // Benzersiz meta başlık ve açıklama
+    const title = seoContent?.metaTitle || `${district} ${service.title} - Profesyonel Hizmet | ${BRAND_INFO.name}`;
+    const description = seoContent?.metaDescription || `${district} bölgesinde profesyonel ${service.title} hizmeti. ${service.description} Hijyenik ortamda, uzman kadromuzla. Hemen randevu alın: ${BRAND_INFO.phoneDisplay}`;
+
+    // Genişletilmiş anahtar kelimeler (LSI)
+    const keywords = [
+        `${district.toLowerCase()} ${service.title.toLowerCase()}`,
+        `${service.title.toLowerCase()} ${district.toLowerCase()}`,
+        `${district.toLowerCase()} ${service.title.toLowerCase()} fiyatları`,
+        `${district.toLowerCase()} ${service.title.toLowerCase()} salon`,
+        `en iyi ${service.title.toLowerCase()} ${district.toLowerCase()}`,
+        BRAND_INFO.name
+    ].join(', ');
 
     return {
         title,
         description,
-        keywords: `${district.toLowerCase()} ${service.title.toLowerCase()}, ${service.title.toLowerCase()} ${district.toLowerCase()}, ${BRAND_INFO.name}`,
+        keywords,
         openGraph: {
             title,
             description,
             type: 'website',
             locale: 'tr_TR',
+            images: seoContent?.image ? [{ url: `https://www.pendiknailart.com${seoContent.image}` }] : [],
         },
         alternates: {
-            canonical: `https://www.iremsi.com/${slug}`,
+            canonical: `https://www.pendiknailart.com/${slug}`,
         },
     };
 }
@@ -90,6 +132,9 @@ export default async function ServicePage({ params }) {
     }
 
     const { district, service } = data;
+
+    // SEO içerik (görsel, makale, alt etiket)
+    const seoContent = getSeoContent(service.slug, district);
 
     // Özel içerik (admin panelinden düzenlenmiş - ilçe-hizmet bazlı)
     const customContent = getCustomContent(slug);
@@ -115,9 +160,22 @@ export default async function ServicePage({ params }) {
 
     // Breadcrumb
     const breadcrumbItems = [
-        { name: 'Ana Sayfa', url: 'https://www.iremsi.com' },
-        { name: `${district} ${service.title}`, url: `https://www.iremsi.com/${slug}` }
+        { name: 'Ana Sayfa', url: 'https://www.pendiknailart.com' },
+        { name: `${district} ${service.title}`, url: `https://www.pendiknailart.com/${slug}` }
     ];
+
+    // Markdown'ı basit HTML'e çevir
+    const renderArticle = (markdown) => {
+        if (!markdown) return null;
+        return markdown
+            .replace(/^## (.*$)/gm, '<h2 class="' + styles.articleH2 + '">$1</h2>')
+            .replace(/^### (.*$)/gm, '<h3 class="' + styles.articleH3 + '">$1</h3>')
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/^- (.*$)/gm, '<li>$1</li>')
+            .replace(/^(\d+)\. (.*$)/gm, '<li>$2</li>')
+            .replace(/\n\n/g, '</p><p>')
+            .replace(/\n/g, '<br/>');
+    };
 
     return (
         <>
@@ -154,6 +212,20 @@ export default async function ServicePage({ params }) {
                     <div className={styles.content}>
                         {/* Main Content */}
                         <div className={styles.mainContent}>
+
+                            {/* Hizmet Görseli */}
+                            {seoContent?.image && (
+                                <div className={styles.serviceImageWrapper}>
+                                    <img
+                                        src={seoContent.image}
+                                        alt={seoContent.imageAlt}
+                                        className={styles.serviceImage}
+                                        loading="lazy"
+                                    />
+                                    <p className={styles.imageCaption}>{seoContent.imageAlt}</p>
+                                </div>
+                            )}
+
                             <h2 className={styles.sectionTitle}>
                                 <b>{district} {service.title}</b> Hizmetimiz
                             </h2>
@@ -176,6 +248,14 @@ export default async function ServicePage({ params }) {
                                 <li><b>Kişiye özel tasarım</b> - Size özel {service.title.toLowerCase()} uygulaması</li>
                                 <li><b>Müşteri memnuniyeti odaklı</b> - %100 memnuniyet garantisi</li>
                             </ul>
+
+                            {/* Uzun SEO Makalesi */}
+                            {seoContent?.article && (
+                                <article
+                                    className={styles.seoArticle}
+                                    dangerouslySetInnerHTML={{ __html: renderArticle(seoContent.article) }}
+                                />
+                            )}
 
                             {/* Instagram Gallery */}
                             <InstagramGallery />

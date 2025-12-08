@@ -5,9 +5,9 @@ export function LocalBusinessSchema() {
         "@context": "https://schema.org",
         "@type": "BeautySalon",
         "name": BRAND_INFO.name,
-        "image": "https://www.iremsi.com/logo.png",
-        "@id": "https://www.iremsi.com",
-        "url": "https://www.iremsi.com",
+        "image": "https://www.pendiknailart.com/logo.png",
+        "@id": "https://www.pendiknailart.com",
+        "url": "https://www.pendiknailart.com",
         "telephone": BRAND_INFO.phone,
         "address": {
             "@type": "PostalAddress",
@@ -134,14 +134,14 @@ export function ArticleSchema({ title, description, image, datePublished, dateMo
         "author": [{
             "@type": "Organization",
             "name": BRAND_INFO.name,
-            "url": "https://www.iremsi.com"
+            "url": "https://www.pendiknailart.com"
         }],
         "publisher": {
             "@type": "Organization",
             "name": BRAND_INFO.name,
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.iremsi.com/logo.png"
+                "url": "https://www.pendiknailart.com/logo.png"
             }
         }
     };
@@ -153,3 +153,4 @@ export function ArticleSchema({ title, description, image, datePublished, dateMo
         />
     );
 }
+

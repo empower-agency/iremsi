@@ -8,16 +8,16 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata = {
-  metadataBase: new URL('https://www.iremsi.com'),
+  metadataBase: new URL('https://www.pendiknailart.com'),
   title: {
     template: `%s | ${BRAND_INFO.name}`,
     default: `${BRAND_INFO.name} - Pendik Protez Tırnak & Nail Art Uzmanı`,
   },
   description: 'Pendik, Kartal, Maltepe bölgelerinde profesyonel protez tırnak, nail art, kalıcı oje, ipek kirpik hizmetleri. Uzman kadromuzla randevu alın!',
   keywords: 'pendik protez tırnak, kartal protez tırnak, pendik nail art, protez tırnak eğitimi, kalıcı oje pendik, ipek kirpik',
-  authors: [{ name: 'iremsi' }],
-  creator: 'iremsi',
-  publisher: 'iremsi',
+  authors: [{ name: 'Pendik Nail Art' }],
+  creator: 'Pendik Nail Art',
+  publisher: 'Pendik Nail Art',
   formatDetection: {
     email: false,
     address: false,
@@ -26,7 +26,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://www.iremsi.com',
+    url: 'https://www.pendiknailart.com',
     siteName: BRAND_INFO.name,
   },
   robots: {
@@ -41,7 +41,7 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code', // Buraya Google Search Console verification code ekleyin
+    google: 'your-google-verification-code',
   },
 };
 
